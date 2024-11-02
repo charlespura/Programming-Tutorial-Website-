@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programming Tutorials</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    /* Custom styling */
+    .thumbnail {
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .thumbnail:hover {
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Programming Tutorials</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Home</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Search Bar -->
+  <div class="container my-4">
+    <input type="text" id="search-input" class="form-control" placeholder="Search for a tutorial (e.g., HTML, Python, React JS)" onkeyup="searchTutorials()">
+  </div>
+
+  <!-- Main Content -->
+  <div class="container my-5" id="tutorials">
+    <h1 class="text-center mb-4">Video Tutorials</h1>
+    <div class="row">
+      <!-- Tutorial Cards -->
+      <div class="col-md-4 mb-4 tutorial-card" data-topic="html">
+        <div class="card">
+          <img src="https://img.youtube.com/vi/mcAq9bmCeR0/0.jpg" class="card-img-top thumbnail" alt="HTML Basics" onclick="openVideo('https://www.youtube.com/watch?v=mcAq9bmCeR0')">
+          <div class="card-body">
+            <h5 class="card-title">HTML Basics for Beginners</h5>
+            <p class="card-text">Learn the fundamentals of HTML.</p>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Add other tutorial cards similarly -->
+      <div class="col-md-4 mb-4 tutorial-card" data-topic="css">
+        <div class="card">
+          <img src="https://img.youtube.com/vi/yfoY53QXEnI/0.jpg" class="card-img-top thumbnail" alt="CSS Basics" onclick="openVideo('https://www.youtube.com/watch?v=yfoY53QXEnI')">
+          <div class="card-body">
+            <h5 class="card-title">CSS Basics for Beginners</h5>
+            <p class="card-text">Introduction to CSS for styling web pages.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4 tutorial-card" data-topic="javascript">
+        <div class="card">
+          <img src="https://img.youtube.com/vi/hdI2bqOjy3c/0.jpg" class="card-img-top thumbnail" alt="JavaScript Basics" onclick="openVideo('https://www.youtube.com/watch?v=hdI2bqOjy3c')">
+          <div class="card-body">
+            <h5 class="card-title">JavaScript Basics</h5>
+            <p class="card-text">An introduction to JavaScript programming.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4 tutorial-card" data-topic="python">
+        <div class="card">
+          <img src="https://img.youtube.com/vi/rfscVS0vtbw/0.jpg" class="card-img-top thumbnail" alt="Python for Beginners" onclick="openVideo('https://www.youtube.com/watch?v=rfscVS0vtbw')">
+          <div class="card-body">
+            <h5 class="card-title">Python for Beginners</h5>
+            <p class="card-text">Learn Python programming from scratch.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4 tutorial-card" data-topic="reactjs">
+        <div class="card">
+          <img src="https://img.youtube.com/vi/w7ejDZ8SWv8/0.jpg" class="card-img-top thumbnail" alt="React JS Tutorial" onclick="openVideo('https://www.youtube.com/watch?v=w7ejDZ8SWv8')">
+          <div class="card-body">
+            <h5 class="card-title">React JS Tutorial</h5>
+            <p class="card-text">A comprehensive guide to React JS.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 mb-4 tutorial-card" data-topic="c++">
+        <div class="card">
+          <img src="https://img.youtube.com/vi/vLnPwxZdW4Y/0.jpg" class="card-img-top thumbnail" alt="C++ Programming" onclick="openVideo('https://www.youtube.com/watch?v=vLnPwxZdW4Y')">
+          <div class="card-body">
+            <h5 class="card-title">C++ Programming for Beginners</h5>
+            <p class="card-text">Learn C++ programming step-by-step.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add more tutorial cards for different topics -->
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Open video in a new tab
+    function openVideo(url) {
+      window.open(url, '_blank');
+    }
+
+    // Search functionality
+    function searchTutorials() {
+      const input = document.getElementById('search-input').value.toLowerCase();
+      const cards = document.querySelectorAll('.tutorial-card');
+      cards.forEach(card => {
+        const topic = card.getAttribute('data-topic');
+        if (topic.includes(input)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
